@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
@@ -55,4 +55,165 @@
     }
 
     main {
-      padding: 60
+      padding: 60px 40px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .product {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #fafafa;
+      transition: transform 0.2s;
+    }
+
+    .product:hover {
+      transform: scale(1.02);
+    }
+
+    .product img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .product-details {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-title {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .product-price {
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+    .shop-btn {
+      padding: 10px;
+      border: 1px solid #111;
+      background: transparent;
+      color: #111;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .shop-btn:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    footer {
+      padding: 30px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #999;
+      border-top: 1px solid #eee;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+        padding: 0 10px;
+      }
+
+      nav a {
+        margin-left: 15px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Robert Resell</div>
+    <nav>
+      <a href="#haine">Haine</a>
+      <a href="#ochelari">Ochelari</a>
+      <a href="#blugi">Blugi</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Noua colecție de vară este aici</h1>
+  </section>
+
+  <main>
+    <section id="haine">
+      <h2>Haine</h2>
+      <div class="products">
+        <div class="product">
+          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80" alt="Produs haine" />
+          <div class="product-details">
+            <div class="product-title">Pulover Balenciaga</div>
+            <div class="product-price">950 RON</div>
+            <a href="#" class="shop-btn">Shop Now</a>
+          </div>
+        </div>
+        <div class="product">
+          <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=600&q=80" alt="Produs haine" />
+          <div class="product-details">
+            <div class="product-title">Jachetă Gucci</div>
+            <div class="product-price">1250 RON</div>
+            <a href="#" class="shop-btn">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ochelari">
+      <h2>Ochelari</h2>
+      <div class="products">
+        <div class="product">
+          <img src="https://images.unsplash.com/photo-1582552938357-48c5a5573a3d?auto=format&fit=crop&w=600&q=80" alt="Ochelari" />
+          <div class="product-details">
+            <div class="product-title">Ochelari Dsquared2</div>
+            <div class="product-price">599 RON</div>
+            <a href="#" class="shop-btn">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="blugi">
+      <h2>Blugi</h2>
+      <div class="products">
+        <div class="product">
+          <img src="https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?auto=format&fit=crop&w=600&q=80" alt="Blugi" />
+          <div class="product-details">
+            <div class="product-title">Blugi Gucci Slim Fit</div>
+            <div class="product-price">890 RON</div>
+            <a href="#" class="shop-btn">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Robert Resell. Toate drepturile rezervate.
+  </footer>
+</body>
+</html>
