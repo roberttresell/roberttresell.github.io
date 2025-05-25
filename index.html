@@ -1,278 +1,58 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Robert Resell - Magazin de Brand</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robert Resell</title>
   <style>
-    /* Reset simplu */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     body {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      background-color: #0d0d0d;
-      color: #eee;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #fff;
+      color: #111;
     }
+
     header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: #111;
-      padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 10;
-      border-bottom: 1px solid #222;
+      padding: 20px 40px;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 1000;
     }
-    header .logo {
-      font-weight: 700;
+
+    .logo {
       font-size: 1.8rem;
-      letter-spacing: 3px;
-      cursor: default;
-      user-select: none;
+      font-weight: bold;
+      letter-spacing: 2px;
     }
+
     nav a {
-      color: #eee;
-      text-decoration: none;
       margin-left: 30px;
-      font-weight: 500;
+      text-decoration: none;
+      color: #111;
       font-size: 1rem;
-      transition: color 0.3s ease;
+      font-weight: 500;
     }
-    nav a:hover {
-      color: #bbb;
+
+    .hero {
+      width: 100%;
+      height: 70vh;
+      background: url('https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: white;
+      text-shadow: 0 0 10px rgba(0,0,0,0.6);
     }
 
     main {
-      padding-top: 100px;
-      max-width: 1200px;
-      margin: auto;
-      width: 100%;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-
-    /* Slider */
-    .slider {
-      position: relative;
-      height: 400px;
-      margin-bottom: 80px;
-      overflow: hidden;
-      border-radius: 8px;
-    }
-    .slides {
-      display: flex;
-      transition: transform 0.6s ease-in-out;
-      height: 100%;
-    }
-    .slide {
-      min-width: 100%;
-      height: 100%;
-      position: relative;
-      background-size: cover;
-      background-position: center;
-    }
-    .slide-overlay {
-      position: absolute;
-      bottom: 40px;
-      left: 40px;
-      color: #eee;
-      font-size: 2.5rem;
-      font-weight: 700;
-      text-shadow: 0 0 10px rgba(0,0,0,0.7);
-      user-select: none;
-    }
-    .slider-buttons {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      gap: 10px;
-      z-index: 5;
-    }
-    .slider-btn {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: #555;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      border: 1.5px solid #eee;
-    }
-    .slider-btn.active {
-      background: #eee;
-    }
-
-    /* Section titles */
-    h2.section-title {
-      font-weight: 700;
-      font-size: 2rem;
-      margin-bottom: 40px;
-      border-bottom: 2px solid #444;
-      padding-bottom: 10px;
-      user-select: none;
-    }
-
-    /* Products grid */
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-      margin-bottom: 80px;
-    }
-
-    .product-card {
-      background: #1a1a1a;
-      border-radius: 6px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    .product-card:hover {
-      transform: scale(1.03);
-    }
-    .product-img {
-      width: 100%;
-      height: 320px;
-      object-fit: cover;
-    }
-    .product-info {
-      padding: 20px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .product-name {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: #eee;
-    }
-    .product-price {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: #bbb;
-    }
-    .shop-btn {
-      align-self: flex-start;
-      padding: 10px 30px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: 2px;
-      background: none;
-      border: 2px solid #eee;
-      color: #eee;
-      border-radius: 3px;
-      text-decoration: none;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      user-select: none;
-    }
-    .shop-btn:hover {
-      background-color: #eee;
-      color: #000;
-    }
-
-    footer {
-      text-align: center;
-      padding: 25px 10px;
-      font-size: 0.85rem;
-      color: #555;
-      background: #111;
-      user-select: none;
-      margin-top: auto;
-    }
-
-    @media (max-width: 480px) {
-      header {
-        flex-direction: column;
-        padding: 15px 20px;
-      }
-      nav a {
-        margin-left: 15px;
-        font-size: 0.9rem;
-      }
-      .slider {
-        height: 250px;
-      }
-      .slide-overlay {
-        font-size: 1.8rem;
-        left: 20px;
-        bottom: 20px;
-      }
-      .product-img {
-        height: 220px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="logo">Robert Resell</div>
-    <nav>
-      <a href="#haine">Haine</a>
-      <a href="#ochelari">Ochelari</a>
-      <a href="#blugi">Blugi</a>
-    </nav>
-  </header>
-
-  <main>
-    <!-- Slider -->
-    <div class="slider" aria-label="Slider produse">
-      <div class="slides">
-        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=1400&q=80');">
-          <div class="slide-overlay">Haine de Lux</div>
-        </div>
-        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1400&q=80');">
-          <div class="slide-overlay">Ochelari Stilati</div>
-        </div>
-        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?auto=format&fit=crop&w=1400&q=80');">
-          <div class="slide-overlay">Blugi Premium</div>
-        </div>
-      </div>
-      <div class="slider-buttons" aria-label="Navigare slider">
-        <button class="slider-btn active" aria-label="Slide 1"></button>
-        <button class="slider-btn" aria-label="Slide 2"></button>
-        <button class="slider-btn" aria-label="Slide 3"></button>
-      </div>
-    </div>
-
-    <!-- Haine -->
-    <section id="haine" aria-label="Produse Haine">
-      <h2 class="section-title">Haine</h2>
-      <div class="products-grid">
-        <div class="product-card">
-          <img class="product-img" src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80" alt="Pulover Balenciaga" />
-          <div class="product-info">
-            <div class="product-name">Pulover Balenciaga</div>
-            <div class="product-price">950 RON</div>
-            <a href="#" class="shop-btn">Shop Now</a>
-          </div>
-        </div>
-        <div class="product-card">
-          <img class="product-img" src="https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=600&q=80" alt="Jachetă Gucci" />
-          <div class="product-info">
-            <div class="product-name">Jachetă Gucci</div>
-            <div class="product-price">1250 RON</div>
-            <a href="#" class="shop-btn">Shop Now</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Ochelari -->
-    <section id="ochelari" aria-label="Produse Ochelari">
-      <h2 class="section-title">Ochelari</h2>
-      <div class="products-grid">
-        <div class="product-card">
-          <img class="product-img" src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w
+      padding: 60
